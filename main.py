@@ -1,7 +1,11 @@
 import pyttsx3
 pyobj = pyttsx3.init()
+file = open("C:\\Users\efty1\\OneDrive\\Desktop\\sampleTxt.txt") # sample file from local machine
+i = file.read()
+file.close()
 voices = pyobj.getProperty('voices') # voices from the local machine
 pyobj.setProperty("rate", 150)
 pyobj.setProperty('voice', voices[1].id)
-pyobj.say("The quick brown fox jumps over the lazy dog. The rain in Spain falls mainly on the plain. Jackdaws love my big sphinx of quartz. How vexingly quick daft zebras jump!")
+pyobj.say(i) # or we can write the text here like "Hello World!" 
+pyobj.save_to_file(i,"C:\\Users\\efty1\\OneDrive\\Desktop\\sampleTxt.mp3")
 pyobj.runAndWait()
